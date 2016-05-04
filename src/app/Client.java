@@ -1,5 +1,6 @@
 package app;
 
+import app.model.GConnection;
 import app.view.ServerViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,7 @@ public class Client extends Application {
     public void hideAndShowMain(){
         primaryStage.setScene(new Scene(mainLayout));
         onCenter();
+        new GConnection(userName,password,imapAddress).connect();
     }
 
     private void onCenter(){

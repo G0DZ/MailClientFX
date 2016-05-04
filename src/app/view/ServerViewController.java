@@ -56,6 +56,9 @@ public class ServerViewController {
         addressLabel.setText("imap server address:");
         userNameLabel.setText("username:");
         passwordLabel.setText("password:");
+        addressTextField.setText("imap.gmail.com");
+        userNameTextField.setText("00x7c0@gmail.com");
+        passwordField.setText("?!cv89erOP");
     }
 
     /**
@@ -79,7 +82,6 @@ public class ServerViewController {
         if (!client.getImapAddress().equals("")) {
             //System.out.println(client.getImapAddress() + client.getUserName() + client.getPassword());
             client.hideAndShowMain();
-
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
