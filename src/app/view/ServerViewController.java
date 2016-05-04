@@ -20,10 +20,22 @@ public class ServerViewController {
     private Label addressLabel;
 
     @FXML
+    private Label userNameLabel;
+
+    @FXML
+    private Label passwordLabel;
+
+    @FXML
     private Button submit;
 
     @FXML
     private TextField addressTextField;
+
+    @FXML
+    private TextField userNameTextField;
+
+    @FXML
+    private PasswordField passwordField;
 
     // Reference to the main application.
     private Client client;
@@ -42,6 +54,8 @@ public class ServerViewController {
     @FXML
     private void initialize() {
         addressLabel.setText("imap server address:");
+        userNameLabel.setText("username:");
+        passwordLabel.setText("password:");
     }
 
     /**
@@ -58,10 +72,14 @@ public class ServerViewController {
      */
     @FXML
     private void handleSubmitAddress() {
-        String address = addressTextField.getText();
+        client.setImapAddress(addressTextField.getText());
+        client.setPassword(passwordField.getText());
+        client.setUserName(userNameTextField.getText());
         //address = address.replaceAll("\\s+","").replaceAll("\n","");
-        if (!address.equals("")) {
-            System.out.println(address);
+        if (!client.getImapAddress().equals("")) {
+            //System.out.println(client.getImapAddress() + client.getUserName() + client.getPassword());
+            client.hideAndShowMain();
+
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
